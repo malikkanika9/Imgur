@@ -26,7 +26,7 @@ data.map((e)=>{
     document.querySelector(".lowerbox").append(div1);
 })
 }
-function getData2(){
+function fetchdata(){
 var Input=document.querySelector("#inputval").value;
 localStorage.setItem("input",JSON.stringify(Input));
 window.location.href="search.html";

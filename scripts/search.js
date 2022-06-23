@@ -1,18 +1,18 @@
-async function getData2(){
-    var Input=JSON.parse(localStorage.getItem("input"))||"";
-    var url2=`https://api.unsplash.com/search/photos/?query=${Input}&client_id=CiUHdv8t1CZ0RdkGWvepkPXZAFaWvFZNgM7IyR5o0ME`
-    var res=await fetch(url2);
+async function fetchdata(){
+    var InputData=JSON.parse(localStorage.getItem("input"))||"";
+    var fethapi=`https://api.unsplash.com/search/photos/?query=${InputData}&client_id=CiUHdv8t1CZ0RdkGWvepkPXZAFaWvFZNgM7IyR5o0ME`
+    var res=await fetch(fethapi);
     var data=await res.json();
-      console.log(Input);
+    //   console.log(InputData);
     var data1=data.results;
     if(data1.length==0){
         console.log(data1);
         return false;
     }
-    showData2(data1); 
+    printData(data1); 
 }
 
-function showData2(d){
+function printData(d){
     console.log(1)
     document.querySelector(".lowerbox").innerHTML="";
     d.map((e)=>{
@@ -27,8 +27,8 @@ function showData2(d){
 })
 
 }
-getData2();
-function getData1(){
+fetchdata();
+function getData(){
     var Input=document.querySelector("#inputval").value;
     localStorage.setItem("input",JSON.stringify(Input));
     window.location.href="search.html";
